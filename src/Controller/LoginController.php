@@ -22,4 +22,8 @@ class LoginController extends AbstractController
             'last_username' => $lastUsername,
         ]);
     }
+
+    #[Route('déconnexion', name: 'app_logout')]
+    public function logout() {
+    }
 }
