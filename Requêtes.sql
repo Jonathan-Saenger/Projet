@@ -1,0 +1,97 @@
+CREATE DATABASE projet ;
+
+CREATE TABLE ADMIN(
+   ID_admin INT AUTO_INCREMENT NOT NULL,
+   nom VARCHAR(25) NOT NULL,
+   prénom VARCHAR(25) NOT NULL,
+   email VARCHAR(25) NOT NULL,
+   password VARCHAR(50) NOT NULL,
+   PRIMARY KEY(ID_admin)
+);
+
+CREATE TABLE EVENEMENT(
+   ID_évènement INT AUTO_INCREMENT NOT NULL,
+   titre VARCHAR(50) NOT NULL,
+   photo image,
+   description VARCHAR(500) NOT NULL,
+   prix CURRENCY NOT NULL,
+   jour DATE NOT NULL,
+   ID_admin VARCHAR(50) NOT NULL,
+   PRIMARY KEY(ID_évènement),
+   FOREIGN KEY(ID_admin) REFERENCES ADMIN(ID_admin)
+);
+
+CREATE TABLE FORMULAIRE(
+   ID_formulaire INT AUTO_INCREMENT NOT NULL,
+   email VARCHAR(50) NOT NULL,
+   téléphone INT NOT NULL,
+   message VARCHAR(500) NOT NULL,
+   PRIMARY KEY(ID_formulaire)
+);
+
+CREATE TABLE SERVICE(
+   ID_service INT AUTO_INCREMENT NOT NULL,
+   titre VARCHAR(50) NOT NULL,
+   photo image,
+   description_ VARCHAR(500) NOT NULL,
+   prix CURRENCY,
+   jour DATE,
+   ID_admin VARCHAR(50) NOT NULL,
+   PRIMARY KEY(ID_service),
+   FOREIGN KEY(ID_admin) REFERENCES ADMIN(ID_admin)
+);
+
+CREATE TABLE BLOG(
+   ID_blog INT AUTO_INCREMENT NOT NULL,
+   nom VARCHAR(50),
+   description VARCHAR(500),
+   PRIMARY KEY(ID_blog)
+);
+
+CREATE TABLE CLIENT(
+   ID_client INT AUTO_INCREMENT NOT NULL,
+   email VARCHAR(50) NOT NULL,
+   password VARCHAR(50) NOT NULL,
+   téléphone INT NOT NULL,
+   ID_formulaire VARCHAR(50),
+   ID_évènement VARCHAR(50),
+   PRIMARY KEY(ID_client),
+   FOREIGN KEY(ID_formulaire) REFERENCES FORMULAIRE(ID_formulaire),
+   FOREIGN KEY(ID_évènement) REFERENCES EVENEMENT(ID_évènement)
+);
+
+CREATE TABLE ARTICLE(
+   ID_article INT AUTO_INCREMENT NOT NULL,
+   titre VARCHAR(50) NOT NULL,
+   photo_ image,
+   texte VARCHAR(1500) NOT NULL,
+   publication DATE NOT NULL,
+   ID_admin VARCHAR(50) NOT NULL,
+   ID_blog VARCHAR(50) NOT NULL,
+   PRIMARY KEY(ID_article),
+   FOREIGN KEY(ID_admin) REFERENCES ADMIN(ID_admin),
+   FOREIGN KEY(ID_blog) REFERENCES BLOG(ID_blog)
+);
+
+CREATE TABLE COMMENTAIRE(
+   ID_commentaire INT AUTO_INCREMENT NOT NULL,
+   note INT NOT NULL,
+   nom VARCHAR(50) NOT NULL,
+   commentaire VARCHAR(250) NOT NULL,
+   publication LOGICAL NOT NULL,
+   jour_publication DATE NOT NULL,
+   ID_client VARCHAR(50) NOT NULL,
+   ID_admin VARCHAR(50) NOT NULL,
+   PRIMARY KEY(ID_commentaire),
+   UNIQUE(ID_client),
+   FOREIGN KEY(ID_client) REFERENCES CLIENT(ID_client),
+   FOREIGN KEY(ID_admin) REFERENCES ADMIN(ID_admin)
+);
+
+CREATE TABLE SERVICE_CLIENT(
+   ID_client INT NOT NULL,
+   ID_service INT NOT NULL,
+   PRIMARY KEY(ID_client, ID_service),
+   FOREIGN KEY(ID_client) REFERENCES CLIENT(ID_client),
+   FOREIGN KEY(ID_service) REFERENCES SERVICE(ID_service)
+);
