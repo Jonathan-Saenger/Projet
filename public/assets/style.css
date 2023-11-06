@@ -1,0 +1,144 @@
+/* Témoignages */
+
+h2 {
+    text-align: center;
+}
+
+label, .note {
+    color : #0D2459;
+    }
+    
+    .temoignage {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .div1, .div2 {
+        width: 350px;
+    }
+    
+    .galaxie {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .textinput {
+        margin-top: 10px;
+        width: 100%;
+        height: 30px;
+        background-color: #d8dde7;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .textarea {
+        margin: 10px;
+        width: 100%;
+        height: 100px;
+        background-color: #d8dde7;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .boutonenvoyer {
+        float: right;
+        margin-bottom: 10px;
+        background-color:#a9b0c1;
+        cursor: pointer;
+        color:#000000;
+        font-size: 15px;
+        padding: 8px 27px;
+        text-decoration: none;
+        }
+    
+    .merci {
+        width: 100%;
+    }
+    
+        .boite-etoiles input {
+        display: none;
+        }
+        
+        .boite-etoiles label {
+        font-size: 50px;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.3s;
+        }
+        
+        .boite-etoiles input:checked + label {
+        color: #ffcc00;
+        }
+    
+        .boite-etoiles label.selected {
+        color: #ffcc00;
+        }
+    
+        .etoile {
+        font-size: 50px;
+        color: #ffcc00;
+        }
+    
+    /* Mediaqueries de la rubrique témoignage */
+    
+    @media screen and (min-width : 850px) {
+        .temoignage {
+            display: flex;
+            width: auto;
+    
+        }
+    
+        .champ {
+            display: flex;
+            flex-direction: row;
+            width: auto;
+        }
+    
+        .div1, .div2{
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .textinput {
+            margin: auto;
+            width: 98%;
+            height: 30px;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+    
+        .textarea {
+            margin: 10px;
+            width: 100%;
+            height: 100px;
+            background-color: #d8dde7;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+    
+        .merci {
+            display: block;
+            margin: auto;  
+            width: auto; 
+        }
+    
+          .boite-etoiles input {
+            display: none;
+          }
+          
+          .boite-etoiles label {
+            font-size: 50px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s;
+          }
+          
+          .boite-etoiles input:checked + label {
+            color: #ffcc00;
+          }
+    
+          .boite-etoiles label.selected {
+            color: #ffcc00;
+          }
+    }
+ 

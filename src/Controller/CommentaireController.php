@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Form\CommentaireType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,6 +28,7 @@ class CommentaireController extends AbstractController
 
         return $this->render('commentaire/commentaire.html.twig', [
             'controller_name' => 'CommentaireController',
+            'Commentaire' => $commentaire,
             'form' => $form->createView(),
         ]);
     }
