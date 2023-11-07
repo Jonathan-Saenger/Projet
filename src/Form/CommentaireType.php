@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
+
 class CommentaireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -18,8 +19,10 @@ class CommentaireType extends AbstractType
             ->add('note', ChoiceType::class, [
                 'choices' => ['1'=> 1, '2'=> 2, '3'=> 3, '4'=> 4, '5'=> 5],
                 'label' => 'note',])
-            ->add('nom', TextType::class, ['label' => 'Nom et prénom :'])
-            ->add('commentaire', TextareaType::class, ['label' => 'Commentaire :'])
+            ->add('nom', TextType::class, [
+                'label' => 'Nom et prénom :'])
+            ->add('commentaire', TextareaType::class, 
+            ['label' => 'Commentaire :'])
         ;
     }
 
