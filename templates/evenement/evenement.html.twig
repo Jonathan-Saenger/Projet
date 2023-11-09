@@ -6,4 +6,16 @@
 
 <h2> Test de la page évènements </h2>
 
+    {% for Evenement in Evenement %} 
+
+        <h3> {{ Evenement.getTitre() }} </h3>
+
+        <p> {{ Evenement.getDescription() }} 
+
+        Le prix de l'évènement est de {{ Evenement.getPrix() }} euros et 
+        nous vous donnons rendez-vous {{ Evenement.getJour|format_date('long', locale='fr')}}
+        </p>
+
+    {% endfor %}
+
 {% endblock %}
