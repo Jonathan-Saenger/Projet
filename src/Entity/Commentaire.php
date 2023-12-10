@@ -19,11 +19,11 @@ class Commentaire
     private ?int $note = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Regex('/^[A-Za-z\,.!?\'"-]+$/')]
+    #[Assert\Regex('/^[A-Za-z\,.!?\'" -]+$/')]
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Assert\Regex('/^[A-Za-z\,.!?\'"-]+$/')]
+    #[Assert\Regex('/^[A-Za-z\,.!?\'" -]+$/')]
     private ?string $commentaire = null;
 
     #[ORM\Column(nullable: true)]
