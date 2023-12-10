@@ -17,7 +17,7 @@ class EvenementCrudController extends AbstractCrudController
     }
 
     
-  /*  public function configureFields(string $pageName): iterable
+   /* public function configureFields(string $pageName): iterable
     {
         yield TextField::new('Titre');
         yield TextareaField::new('Description');
