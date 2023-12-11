@@ -32,6 +32,9 @@ class Evenement
     #[ORM\ManyToOne(inversedBy: 'Evenement')]
     private ?User $user = null;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $jour1 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Evenement
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getJour1(): ?\DateTimeInterface
+    {
+        return $this->jour1;
+    }
+
+    public function setJour1(?\DateTimeInterface $jour1): static
+    {
+        $this->jour1 = $jour1;
 
         return $this;
     }

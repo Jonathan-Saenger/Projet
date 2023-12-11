@@ -13,7 +13,7 @@
         <p> {{ Evenement.getDescription() }} 
 
         Le prix de l'évènement est de {{ Evenement.getPrix() }} euros et 
-        nous vous donnons rendez-vous {{ Evenement.getJour|format_date('long', locale='fr')}}
+        nous vous donnons rendez-vous du {{ Evenement.getJour|format_date('long', locale='fr')}} au {{ Evenement.getJour1|format_date('long', locale='fr')}}
         </p>
 
     {% endfor %}
