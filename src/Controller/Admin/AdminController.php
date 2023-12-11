@@ -28,7 +28,7 @@ class AdminController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Annonces des évènements', 'fas fa-list', Evenement::class);
+        yield MenuItem::linkToCrud('Annonces des évènements', 'fas fa-mountain', Evenement::class);
         yield MenuItem::linkToCrud('Commentaire', 'fas fa-comment', Commentaire::class);
         yield MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', $this->generateUrl('app_home'));
     }

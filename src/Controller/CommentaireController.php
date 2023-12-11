@@ -24,6 +24,7 @@ class CommentaireController extends AbstractController
             $entityManager->persist($commentaire);
             $entityManager->flush();
             $this->addFlash('success', 'Merci pour votre commentaire ! Il sera publié après modération !');
+            return $this->redirectToRoute('app_commentaire');
         }
 
         return $this->render('commentaire/commentaire.html.twig', [
@@ -33,3 +34,4 @@ class CommentaireController extends AbstractController
         ]);
     }
 }
+
